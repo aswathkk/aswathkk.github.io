@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Aswath K</title>
+	<style>
+	html, body {
+		margin: 0;
+		padding: 0;
+		height: 100%;
+		width: 100%;
+		font: 21px Arial, Helvetica, sans-serif;
+		overflow: hidden;
+	}
+	
+	#main {
+		background: #333;
+		color: #eee;
+		padding: 2em;
+		height: 100%;
+	}
+
+	.cursor {
+		animation: cursor-animation 1s infinite;
+	}
+
+	@keyframes cursor-animation {
+		0% {
+			opacity: 1;
+		}
+		50% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+	</style>
+</head>
+<body>
+	<div id="main">
+		<span class="ps1">aswathkk$</span> <span id="mytext">echo 'Hello World' </span><span class="cursor">|</span>
+	</div>
+	<script>
+		var mytext = document.getElementById('mytext');
+		var text = mytext.innerHTML;
+		var i = 0;
+		mytext.innerHTML = '';
+		function type() {
+			mytext.innerHTML += text.charAt(i++);
+			if(i === text.length)
+				clearInterval(aId);
+		}
+		var aId = setInterval(type, 1000/3);
+	</script>
+</body>
+</html>
