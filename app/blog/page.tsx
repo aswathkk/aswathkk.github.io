@@ -16,8 +16,8 @@ export default async function Blog() {
       <p>
         Welcome to my blog.
         <br />
-        Here's a list of all posts available in this blog. Some of them might be
-        already published in other platforms
+        Here&apos;s a list of all posts available in this blog. Some of them
+        might be already published in other platforms
       </p>
       <ul>
         {files.map((x: any) => (

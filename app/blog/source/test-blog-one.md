@@ -1,3 +1,11 @@
+---
+title: "Title of the blog"
+description: "Description for the blog"
+date: 2023-09-30T12:19:00+05:30
+tags: ["python", "hack", "test"]
+draft: false
+---
+
 Hi There,
 Testing out a blog
 

@@ -1,27 +1,36 @@
-import { readFileSync } from "fs";
-import { join, resolve } from "path";
-import { marked } from "marked";
-import { Metadata } from "next";
+import { getPostData } from "../utils";
+import { cache } from "react";
 
-function getPost(slug: string) {
-  const cwd = resolve(process.cwd(), "app/blog/source");
-  return readFileSync(join(cwd, decodeURI(slug)), "utf-8");
+interface PageProps {
+  params: {
+    slug: string;
+  };
 }
 
-export const metadata: Metadata = {
-  title: "Post Name",
-};
+const getCachedPostData = cache(getPostData);
 
-export default function Post(props) {
-  console.log("props", props);
-  const fileContent = getPost(props.params.slug);
-  const parsedMD = marked.parse(fileContent);
+export function generateMetadata(props: PageProps) {
+  const { attributes } = getCachedPostData(props.params.slug);
+
+  return {
+    title: attributes.title,
+    description: attributes.description,
+  };
+}
+
+export default function Post(props: PageProps) {
+  const { attributes, htmlData } = getCachedPostData(props.params.slug);
+
   return (
     <div>
-      Blog item
+      <h1 className="text-4xl">{attributes.title}</h1>
+      <div>
+        date: {attributes.date.toLocaleDateString()} | Tags:{" "}
+        {attributes.tags.join(", ")}
+      </div>
       <div
         className="prose prose-a:text-sky-500"
-        dangerouslySetInnerHTML={{ __html: parsedMD }}
+        dangerouslySetInnerHTML={{ __html: htmlData }}
       ></div>
     </div>
   );
