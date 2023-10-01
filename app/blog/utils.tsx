@@ -48,8 +48,12 @@ interface PostData {
 
 const SOURCE_PATH = join(cwd(), "app/blog/source");
 
+function removeMdExtension(slug: string) {
+  return slug.replace(/\.md$/, "");
+}
+
 export function getPostData(slug: string, onlyMeta = false): PostData {
-  const filePath = join(SOURCE_PATH, slug);
+  const filePath = join(SOURCE_PATH, `${slug}.md`);
   const fileContent = readFileSync(filePath, "utf-8");
   // Extracts out the attributes from YAML front matter
   const { attributes, body } = fm<PostData["meta"]>(fileContent);
@@ -65,7 +69,7 @@ export function getPostData(slug: string, onlyMeta = false): PostData {
 export function getAllPosts(): PostData[] {
   const files = readdirSync(SOURCE_PATH);
   const posts = files
-    .map((slug) => ({ ...getPostData(slug, false), slug }))
+    .map((slug) => getPostData(removeMdExtension(slug), false))
     // sort the posts in descending order of date
     .sort((a, b) => (a.meta.date < b.meta.date ? 1 : -1));
   return posts;
