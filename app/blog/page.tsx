@@ -1,15 +1,8 @@
-import fs from "fs";
 import Link from "next/link";
-import { resolve } from "path";
-
-function getPosts() {
-  const cwd = resolve(process.cwd(), "app/blog/source");
-  const files = fs.readdirSync(cwd);
-  return files;
-}
+import { getAllPosts } from "./utils";
 
 export default async function Blog() {
-  const files = getPosts();
+  const posts = getAllPosts();
 
   return (
     <>
@@ -20,10 +13,10 @@ export default async function Blog() {
         might be already published in other platforms
       </p>
       <ul>
-        {files.map((x: any) => (
-          <li key={x}>
-            <Link className="text-sky-500" href={`blog/${x}`}>
-              {x}
+        {posts.map((post) => (
+          <li key={post.meta.slug}>
+            <Link className="text-sky-500" href={`blog/${post.meta.slug}`}>
+              {post.meta.title}
             </Link>
           </li>
         ))}

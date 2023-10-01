@@ -1,4 +1,4 @@
-import { getPostData } from "../utils";
+import { getAllPosts, getPostData } from "../utils";
 import { cache } from "react";
 
 interface PageProps {
@@ -7,10 +7,14 @@ interface PageProps {
   };
 }
 
+export function generateStaticParams() {
+  return getAllPosts().map((post) => ({ slug: post.meta.slug }));
+}
+
 const getCachedPostData = cache(getPostData);
 
 export function generateMetadata(props: PageProps) {
-  const { attributes } = getCachedPostData(props.params.slug);
+  const { meta: attributes } = getCachedPostData(props.params.slug);
 
   return {
     title: attributes.title,
@@ -19,14 +23,13 @@ export function generateMetadata(props: PageProps) {
 }
 
 export default function Post(props: PageProps) {
-  const { attributes, htmlData } = getCachedPostData(props.params.slug);
+  const { meta, htmlData } = getCachedPostData(props.params.slug);
 
   return (
     <div>
-      <h1 className="text-4xl">{attributes.title}</h1>
+      <h1 className="text-4xl">{meta.title}</h1>
       <div>
-        date: {attributes.date.toLocaleDateString()} | Tags:{" "}
-        {attributes.tags.join(", ")}
+        date: {meta.date.toLocaleDateString()} | Tags: {meta.tags.join(", ")}
       </div>
       <div
         className="prose prose-a:text-sky-500"
