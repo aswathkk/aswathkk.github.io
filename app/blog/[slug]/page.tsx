@@ -1,3 +1,4 @@
+import Markdown from "../../components/Markdown";
 import { getAllPosts, getPostData } from "../utils";
 import { cache } from "react";
 
@@ -23,7 +24,7 @@ export function generateMetadata(props: PageProps) {
 }
 
 export default function Post(props: PageProps) {
-  const { meta, htmlData } = getCachedPostData(props.params.slug);
+  const { meta, markdown } = getCachedPostData(props.params.slug);
 
   return (
     <div>
@@ -31,10 +32,9 @@ export default function Post(props: PageProps) {
       <div>
         date: {meta.date.toLocaleDateString()} | Tags: {meta.tags.join(", ")}
       </div>
-      <div
-        className="prose prose-a:text-sky-500"
-        dangerouslySetInnerHTML={{ __html: htmlData }}
-      ></div>
+      <div className="prose prose-a:text-sky-500">
+        <Markdown markdown={markdown} />
+      </div>
     </div>
   );
 }

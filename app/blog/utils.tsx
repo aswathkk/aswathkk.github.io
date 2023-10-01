@@ -2,7 +2,6 @@ import { readFileSync, readdirSync } from "fs";
 import { join } from "path";
 import { cwd } from "process";
 import fm from "front-matter";
-import { marked } from "marked";
 
 interface PostMeta {
   /**
@@ -43,7 +42,7 @@ interface PostMeta {
 
 interface PostData {
   meta: PostMeta;
-  htmlData: string;
+  markdown: string;
 }
 
 const SOURCE_PATH = join(cwd(), "app/blog/source");
@@ -52,24 +51,32 @@ function removeMdExtension(slug: string) {
   return slug.replace(/\.md$/, "");
 }
 
-export function getPostData(slug: string, onlyMeta = false): PostData {
+/**
+ * Retrieves the post data for a given slug.
+ * @param slug - The slug of the post to retrieve.
+ * @returns The post data, including metadata and markdown content.
+ */
+export function getPostData(slug: string): PostData {
   const filePath = join(SOURCE_PATH, `${slug}.md`);
   const fileContent = readFileSync(filePath, "utf-8");
   // Extracts out the attributes from YAML front matter
   const { attributes, body } = fm<PostData["meta"]>(fileContent);
-  // Parses markdown format
-  const htmlData = onlyMeta ? "" : marked(body);
 
   return {
     meta: { ...attributes, slug },
-    htmlData,
+    markdown: body,
   };
 }
 
+/**
+ * Returns an array of all the blog post data, sorted in descending order of date.
+ * @returns An array of PostData objects.
+ */
 export function getAllPosts(): PostData[] {
-  const files = readdirSync(SOURCE_PATH);
+  const files = readdirSync(SOURCE_PATH, { withFileTypes: true });
   const posts = files
-    .map((slug) => getPostData(removeMdExtension(slug), false))
+    .filter((dirent) => dirent.isFile())
+    .map((dirent) => getPostData(removeMdExtension(dirent.name)))
     // sort the posts in descending order of date
     .sort((a, b) => (a.meta.date < b.meta.date ? 1 : -1));
   return posts;
