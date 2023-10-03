@@ -45,7 +45,7 @@ interface PostData {
   markdown: string;
 }
 
-const SOURCE_PATH = join(cwd(), "app/blog/source");
+const SOURCE_PATH = join(cwd(), "data/blog");
 
 function removeMdExtension(slug: string) {
   return slug.replace(/\.md$/, "");

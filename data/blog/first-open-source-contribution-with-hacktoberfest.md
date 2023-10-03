@@ -4,11 +4,13 @@ description: "How I accomplished the goal of start giving back to the world of O
 date: 2018-11-26T01:00:00+05:30
 tags: ["hacktoberfest", "open-source", "oh-my-zsh"]
 draft: false
-originUrl: https://medium.com/@aswathkk/how-i-kick-started-open-source-journey-with-hacktoberfest-2018-d699b228e274
+originUrl: "https://medium.com/@aswathkk/how-i-kick-started-open-source-journey-with-hacktoberfest-2018-d699b228e274"
 ---
 
 For a long time, I was searching for ways to get started with Open Source contributions. Whenever I see some posts about GSoC, I think this time I should start. However, I always end up reading a few articles on How to start contributing to Open Source Software. In the worst case, I will go to the issue list of a few projects and decide that this is not my cup of tea!
 This year, I passed out of college, and I realised that I couldn’t take part in GSoC any more.
+
+![Alt text](images/Hacktoberfest-2018-TShirt.webp "Hacktoberfest-2018 T-shirt design")
 
 When I saw a post about hacktoberfest in Github’s LinkedIn page, I decided to give it a try. One thing which gave me the confidence, which I didn’t have previous time is that I know Puneeth. He is mentoring people in our company. Moreover, he has been making open-source contributions for a long time. When I saw the post about hacktoberfest, I told him to help me. He gave me a blog post written by him:
 
