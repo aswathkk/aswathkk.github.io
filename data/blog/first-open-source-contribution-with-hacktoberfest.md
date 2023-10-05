@@ -14,7 +14,7 @@ This year, I passed out of college, and I realised that I couldn’t take part i
 
 When I saw a post about hacktoberfest in Github’s LinkedIn page, I decided to give it a try. One thing which gave me the confidence, which I didn’t have previous time is that I know Puneeth. He is mentoring people in our company. Moreover, he has been making open-source contributions for a long time. When I saw the post about hacktoberfest, I told him to help me. He gave me a blog post written by him:
 
-https://punchagan.muse-amuse.in/blog/i-love-foss-how-do-i-start-contributing-code/
+[@preview](https://punchagan.muse-amuse.in/blog/i-love-foss-how-do-i-start-contributing-code/)
 
 While going through this article, I felt like this is similar to whatever I’ve read previous times. I realised I’ve gone through this sometime back. I told him the same. He asked me about the motivation behind participating in hacktoberfest. He added whether it is just for getting a swag? I told him my intentions. He told me to start by contributing to some FOSS projects that I use. Also, throughout the journey, he helped me in clarifying many doubts I had.
 
