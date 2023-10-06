@@ -32,7 +32,7 @@ function ParagraphComponent(props: any) {
       return children;
     }
   }
-  return <p>{children}</p>;
+  return <p className="">{children}</p>;
 }
 
 async function LinkPreviewWithMetaData({ href }: any) {
@@ -61,11 +61,7 @@ function LinkComponent({ children, href }: any) {
   if (children === "@preview") {
     return <LinkPreviewWithMetaData href={href} />;
   }
-  return (
-    <Link href={href} className="italic">
-      {children}
-    </Link>
-  );
+  return <Link href={href}>{children}</Link>;
 }
 
 export default function Markdown(props: { markdown: string }) {

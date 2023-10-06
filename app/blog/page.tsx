@@ -6,18 +6,25 @@ export default async function Blog() {
 
   return (
     <>
-      <p>
-        Welcome to my blog.
-        <br />
-        Here&apos;s a list of all posts available in this blog. Some of them
-        might be already published in other platforms
-      </p>
+      <h2 className="mb-5">Articles</h2>
+      <hr className="mb-5" />
       <ul>
         {posts.map((post) => (
-          <li key={post.meta.slug}>
-            <Link className="text-sky-500" href={`blog/${post.meta.slug}`}>
+          <li key={post.meta.slug} className="mb-3">
+            <Link
+              className="text-indigo-600 line-clamp-1 hover:underline"
+              href={`blog/${post.meta.slug}`}
+              title={post.meta.title}
+            >
               {post.meta.title}
             </Link>
+            <div className="text-xs text-gray-400">
+              {post.meta.date.toLocaleDateString("en-US", {
+                month: "short",
+                day: "numeric",
+                year: "numeric",
+              })}
+            </div>
           </li>
         ))}
       </ul>

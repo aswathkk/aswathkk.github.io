@@ -28,11 +28,17 @@ export default function Post(props: PageProps) {
 
   return (
     <div>
-      <h1 className="text-4xl">{meta.title}</h1>
-      <div>
-        date: {meta.date.toLocaleDateString()} | Tags: {meta.tags.join(", ")}
+      <h1 className="text-4xl font-semibold mb-5 text-gray-700">
+        {meta.title}
+      </h1>
+      <div className="mb-5 text-sm text-gray-400 flex">
+        {meta.date.toLocaleDateString("en-US", {
+          month: "short",
+          day: "numeric",
+          year: "numeric",
+        })}{" "}
       </div>
-      <div className="prose prose-a:text-sky-500">
+      <div className="prose prose-a:text-indigo-600">
         <Markdown markdown={markdown} />
       </div>
     </div>
