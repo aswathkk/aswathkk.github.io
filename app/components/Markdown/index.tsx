@@ -28,7 +28,10 @@ function ParagraphComponent(props: any) {
     return children;
   }
   if (children?.props?.node?.tagName === "a") {
-    if (children?.props?.node?.children?.[0]?.value === "@preview") {
+    if (
+      children?.props?.node?.children?.[0]?.value === "@preview" ||
+      children?.props?.node?.children?.[0]?.value === "@tweetPreview"
+    ) {
       return children;
     }
   }
@@ -57,9 +60,24 @@ async function LinkPreviewWithMetaData({ href }: any) {
   );
 }
 
+async function EmbedTweet({ href }: any) {
+  const url = `https://publish.twitter.com/oembed?url=${href}`;
+  const response = await fetch(url).then((res) => res.json());
+  console.log(response.html);
+  return (
+    <div
+      className="flex justify-center"
+      dangerouslySetInnerHTML={{ __html: response.html }}
+    />
+  );
+}
+
 function LinkComponent({ children, href }: any) {
   if (children === "@preview") {
     return <LinkPreviewWithMetaData href={href} />;
+  }
+  if (children === "@tweetPreview") {
+    return <EmbedTweet href={href} />;
   }
   return <Link href={href}>{children}</Link>;
 }
