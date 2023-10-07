@@ -10,7 +10,7 @@ originUrl: "https://medium.com/@aswathkk/how-i-kick-started-open-source-journey-
 For a long time, I was searching for ways to get started with Open Source contributions. Whenever I see some posts about GSoC, I think this time I should start. However, I always end up reading a few articles on How to start contributing to Open Source Software. In the worst case, I will go to the issue list of a few projects and decide that this is not my cup of tea!
 This year, I passed out of college, and I realised that I couldn’t take part in GSoC any more.
 
-![Alt text](images/Hacktoberfest-2018-TShirt.webp "Hacktoberfest-2018 T-shirt design")
+![Hacktoberfest 2018 T-shrit design](images/Hacktoberfest-2018-TShirt.webp "Hacktoberfest-2018 T-shirt design")
 
 When I saw a post about hacktoberfest in Github’s LinkedIn page, I decided to give it a try. One thing which gave me the confidence, which I didn’t have previous time is that I know Puneeth. He is mentoring people in our company. Moreover, he has been making open-source contributions for a long time. When I saw the post about hacktoberfest, I told him to help me. He gave me a blog post written by him:
 
@@ -20,7 +20,7 @@ While going through this article, I felt like this is similar to whatever I’ve
 
 I started exploring the Github repositories of the software that I’m using. I thought this time also I may do the same thing that I did before. However, that was not the case. I saw an issue in the repository [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) which was tagged as hacktoberfest. It was to [add READMEs to undocumented oh-my-zsh plugins](https://github.com/robbyrussell/oh-my-zsh/issues/7175).
 
-# My first Pull Request
+## My first Pull Request
 
 I searched through the list of `oh-my-zsh` plugins to see whether I can write some docs for it. I found many!
 
@@ -45,7 +45,7 @@ I experienced the joy and satisfaction that we get when our initial PRs gets mer
 
 ---
 
-# Things I learned by Contributing to Oh-My-Zsh
+## Things I learned by Contributing to Oh-My-Zsh
 
 - **It doesn’t matter what kind of issue you are fixing.**  
   You are doing something for the community, and you are learning something. The first issue that I picked up was to add documentation for a plugin. It was a straightforward task. But it taught me how to contribute to an external Github repository via pull requests.
@@ -58,9 +58,10 @@ I experienced the joy and satisfaction that we get when our initial PRs gets mer
 
 ---
 
-To complete hacktoberfest-2018, we should make at least 5 PRs. I made the other contributions to [openebs](https://medium.com/u/487395ff1add) and finished it.
+To complete hacktoberfest-2018, we should make at least 5 PRs. I made the other contributions to OpenEBS and finished it.
 
-Apart from hacktoberfest goodies, I was also able to win some awesome goodies such as **Amazon Echo** and a **Laptop** from [openebs](https://medium.com/u/487395ff1add).
+Apart from hacktoberfest goodies, I was also able to win some awesome goodies such as **Amazon Echo** and a **Laptop** from OpenEBS.
 
 Wanted to read that experience?
+
 https://medium.com/@aswathkk/experience-with-openebs-in-this-hacktoberfest-64b9711a22f5
