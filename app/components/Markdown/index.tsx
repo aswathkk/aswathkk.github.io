@@ -63,7 +63,6 @@ async function LinkPreviewWithMetaData({ href }: any) {
 async function EmbedTweet({ href }: any) {
   const url = `https://publish.twitter.com/oembed?url=${href}`;
   const response = await fetch(url).then((res) => res.json());
-  console.log(response.html);
   return (
     <div
       className="flex justify-center"
